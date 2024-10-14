@@ -4,8 +4,8 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
-import { defineRevealSdkWrappers } from "reveal-sdk-wrappers";
-defineRevealSdkWrappers();
+// import { defineRevealSdkWrappers } from "reveal-sdk-wrappers";
+// defineRevealSdkWrappers();
 
 if (environment.production) {
   enableProdMode();
