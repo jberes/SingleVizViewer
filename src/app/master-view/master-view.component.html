@@ -1,0 +1,40 @@
+<div class="column-layout group">
+  <div class="column-layout group_1">
+    <igx-list class="list">
+      @for (item of revealServerVisualizationChartInfo; track item) {
+        <igx-list-item (click)="listItemClick(item)">
+          <span igxListThumbnail>
+            <igx-avatar [src]="item.vizImageUrl" shape="circle" class="avatar"></igx-avatar>
+          </span>
+          <span igxListLineTitle>{{ item.vizTitle }}</span>
+          <span igxListLineSubTitle>{{ item.dashboardTitle }}</span>
+          <span igxListLine>
+            <p class="text">
+              {{ item.dashboardFileName }}
+            </p>
+          </span>
+          <span igxListAction>
+            <igx-icon class="icon">
+              add
+            </igx-icon>
+          </span>
+        </igx-list-item>
+      }
+    </igx-list>
+  </div>
+</div>
+<div class="column-layout group_2">
+  <p class="text_1">
+    {{ vizInfo?.dashboardFileName }}
+  </p>
+  <p class="text_2">
+    {{ vizInfo?.dashboardTitle }}
+  </p>
+  <p class="text_2">
+    {{ vizInfo?.vizId }}
+  </p>
+  <p class="text_2">
+    {{ vizInfo?.vizTitle }}
+  </p>
+  <rv-reveal-view [dashboard]="vizInfo?.dashboardFileName ||" [options]="dashboardOptions" class="reveal-dash-board"></rv-reveal-view>
+</div>
