@@ -1,31 +1,36 @@
-# SingleVizViewer
+# Reveal SingleVisualizationMode in App Builder
 
-This project was generated with [App Builder Code Gen](https://www.infragistics.com/products/appbuilder).
+Reveal has a feature that lets you pull a single visualization from an `.RDASH` file and display that specific visualization in a `RevealView`. Single Visualizations can be loaded in one of two ways:
 
-## Development server
+- By **Visualization ID**, which is a string / GUID
+- By **Visualization Title**, which is simply the title of the visualization
 
-Run `npm start` to build the application, start a web server and open the application in the default browser. The application will open in `http://localhost:4200/` by default.
+The recommended approach is to use the **GUID**, as a dashboard can have multiple visualizations with the same title.
 
-## Build
+To use the **SingleVisualizationMode**, there is the new `rv-visualization-viewer` in the Reveal Web Components wrapper. Here are the docs to review how to get started with the new Reveal Web Components wrapper:  
+[Reveal Web Components Documentation](https://help.revealbi.io/web/web-component-wrappers/visualization-viewer/options/)
 
-Run `npm run build` to build the application into an output directory.
+The basic approach is to pass the **Dashboard File Name** and the **Visualization ID** to the `rv-visualization-viewer`.
 
-## Running unit tests
+```html
+<rv-visualization-viewer *ngIf="_singleVizDocument"
+    [dashboard]="_singleVizDocument"
+    [visualization]="_singleViz">
+</rv-visualization-viewer>
+```
 
-Run `npm test` to execute the unit tests via [Karma](https://karma-runner.github.io). Runs all `.spec.ts` files under `./src` folder.
+In code, assign the variable values to the properties of the `rv-visualization-viewer`.
 
-## Running code style checks
+```typescript
+private loadDashboardById(dashboardName: string, visualizationId: string) {
+    this._singleVizDocument = dashboardName; // string
+    this._singleViz = visualizationId; // string
+}
+```
 
-Run `npm run lint` to execute the code styling rules for the project.
+The following API returns the visualization info for dashboards on the server. The **VizId** and the **DashboardFileName** are used to load the single visualization into the `rv-visualization-viewer`.
 
-## Licensing
+- [API to get visualization info](https://reveal-api.azurewebsites.net/dashboards/visualizations/all)
 
-See the [License FAQ and Installation documentation](https://www.infragistics.com/products/ignite-ui-angular/angular/components/general/ignite-ui-licensing) for information on how to upgrade to the full licensed package, if the project is using a Trial version of Ignite UI for Angular, and how to setup your environment and CI to use our licensed npm feed.
-
-Alternatively run `npm run infragistics-login` for a guided login to our licensed feed.
-
-## Additional resources
-
-- Ignite UI Angular Schematics were used to generate this project and are available for additional commands within the project. For more details and how to use them, refer to [Angular Schematics & Ignite UI CLI](https://www.infragistics.com/products/ignite-ui-angular/angular/components/general/cli-overview).
-
-- [Ignite UI for Angular](https://www.infragistics.com/products/ignite-ui-angular) - to learn more about the product or to dive into component specifics and showcases.
+Sample application using the `rv-visualization-viewer`:  
+- [GitHub Repository - Single Visualization Viewer](https://github.com/jberes/SingleVizViewer)
