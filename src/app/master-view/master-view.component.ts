@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { RevealSdkSettings } from '@revealbi/ui';
+//import { RevealSdkSettings } from '@revealbi/ui';
 import { Subject, takeUntil } from 'rxjs';
 import { VisualizationChartInfo } from '../models/reveal-server/visualization-chart-info';
 import { RevealServerService } from '../services/reveal-server.service';
+
+declare var $: any;
 
 @Component({
   selector: 'app-master-view',
@@ -21,7 +23,7 @@ export class MasterViewComponent implements OnInit, OnDestroy {
   constructor(
     private revealServerService: RevealServerService,
   ) {
-    RevealSdkSettings.serverUrl = 'revealServer';
+    $.ig.RevealSdkSettings.setBaseUrl(this.revealServer);
   }
 
   ngOnInit() {
