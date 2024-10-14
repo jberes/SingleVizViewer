@@ -36,5 +36,9 @@
   <p class="text_2">
     {{ vizInfo?.vizTitle }}
   </p>
-  <rv-reveal-view [dashboard]="vizInfo?.dashboardFileName ||" [options]="dashboardOptions" class="reveal-dash-board"></rv-reveal-view>
+  <!-- <rv-reveal-view [dashboard]="vizInfo?.dashboardFileName ||" [options]="dashboardOptions" class="reveal-dash-board"></rv-reveal-view> -->
+  <rv-visualization-viewer *ngIf="_singleVizDocument" class="reveal-dash-board"
+    [dashboard]="_singleVizDocument"
+    [visualization]="_singleViz">
+  </rv-visualization-viewer>
 </div>
