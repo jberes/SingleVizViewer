@@ -1,6 +1,19 @@
 # Reveal SingleVisualizationMode in App Builder
 
-Reveal has a feature that lets you pull a single visualization from an `.RDASH` file and display that specific visualization in a `RevealView`. Single Visualizations can be loaded in one of two ways:
+Reveal has a feature that lets you pull a single visualization from an `.RDASH` file and display that specific visualization in a `RevealView`. 
+
+## Overview
+
+[Video Explanation](https://app.screencast.com/vAIRlzhFvL2rR)
+
+<img width="750" alt="2024-10-14_20-18-26" src="https://github.com/user-attachments/assets/03e40cdc-f9ee-4742-981a-4798ec9bb18a">
+
+
+## Details
+
+
+
+Single Visualizations can be loaded in one of two ways:
 
 - By **Visualization ID**, which is a string / GUID
 - By **Visualization Title**, which is simply the title of the visualization
