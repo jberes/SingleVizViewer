@@ -45,5 +45,5 @@ The following API returns the visualization info for dashboards on the server. T
 
 - [API to get visualization info](https://reveal-api.azurewebsites.net/dashboards/visualizations/all)
 
-Sample application using the `rv-visualization-viewer`:  
+Sample application using the `rv-visualization-viewer` in this repository.  Run npm install && npm start.  The Reveal server is running in Azure.
 - [GitHub Repository - Single Visualization Viewer](https://github.com/jberes/SingleVizViewer)
